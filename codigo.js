@@ -1,4 +1,5 @@
 function bienvenido(){
+    nombre = prompt("Escriba su nombre y apellido")
     alert ("Hola " + nombre + ", bienvenido al sistema de reserva del resort 'Altos de Simic', a continuación elijá la fecha en la que desee hospedarse")
 }
 
@@ -41,27 +42,24 @@ function elegirActividad(ac1,ac2,ac3,ac4,ac5){
             alert("Opcion inválida");
             elegirActividad(ac1,ac2,ac3,ac4,ac5)
          }
-}
+    }
 
     function confirmar(c1,c2){
-        alert(datos);
+        alert("Estimado/a " + nombre + ", su reserva hecha para el mes de " + fecha + " incluye " + actividad + " de manera gratuita para toda su familia." );
         validar= prompt("Si los datos son correctos escriba si, de lo contrario escriba no y sera redirigido al primer paso").toUpperCase();
 
-            if(validar===c1){
-                alert("Su reserva sera confirmada en cuestión de segundos");
-            }
-            else if(validar===c2){
-                alert("Complete sus datos nuevamente");
-                bienvenido();
-            }
-            else if((validar!==c1)&&(validar!==c2)){
-                alert("Opción inválida");
-                confirmar(c1,c2);
-            }
+        if(validar===c1){
+            alert("Su reserva sera confirmada en cuestión de segundos");
         }
-    
-
-
+        else if(validar===c2){
+            alert("Complete sus datos nuevamente");
+            return 'error';
+        }
+        else if((validar!==c1)&&(validar!==c2)){
+            alert("Opción inválida");
+            confirmar(c1,c2);
+        }
+    }
 
     function cargando(){
         for(let i=3; i<=3; i--){
@@ -69,19 +67,28 @@ function elegirActividad(ac1,ac2,ac3,ac4,ac5){
             if(i===1){
                 break;
             }
+        }   
+           
+        alert("Su reserva a sido confirmada. Muchas gracias por confiar en nosotros.");
+    }
+
+
+
+
+function registrarse () {
+    bienvenido();
+    elegirFecha("30.000 pesos","20.000 pesos","12.000 pesos","ENERO","FEBRERO", "MARZO");
+    elegirActividad("SPA", "NATACION", "BAILE", "CABALGATA", "SENDERISMO");
+   
+    if (confirmar("SI","NO") === 'error') {
+        return 'error';
+    };
+    cargando();
+    return 'OK';
 }
-            alert("Su reserva a sido confirmada. Muchas gracias por confiar en nosotros.");
+
+let registro = '';
+
+while (registro !== 'OK') {
+    registro = registrarse();
 }
-
-
-
-
-nombre = prompt("Escriba su nombre y apellido")
-bienvenido();
-elegirFecha("30.000 pesos","20.000 pesos","12.000 pesos","ENERO","FEBRERO", "MARZO");
-elegirActividad("SPA", "NATACION", "BAILE", "CABALGATA", "SENDERISMO");
-datos= alert("Estimado/a " + nombre + ", su reserva hecha para el mes de " + fecha + " incluye " + actividad + " de manera gratuita para toda su familia." );
-confirmar("SI","NO");
-
-cargando();
-
