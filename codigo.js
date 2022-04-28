@@ -19,6 +19,56 @@ function elegirFecha(v1,v2,v3,v4,v5,v6) {
     }
 }
 
+// Ingreso objetos mediante una clase para luego crear una variable atraves del molde datos.
+
+function ingresaDatos(){
+class datos {
+    constructor(edad, dni, domicilio, profesion) {
+        this.edad = edad;
+        this.dni = dni;
+        this.domicilio = domicilio;
+        this.profesion =profesion;
+    }
+}
+alert("Ingrese los siguientes datos para completar su ficha personal");  
+const edad = prompt("Ingrese su edad aquí");
+const dni = prompt("Ingrese su DNI sin utilizar puntos");
+const domicilio = prompt("Ingrese su domicilio");
+const profesion = prompt("Ingrese su profesión aquí");
+    
+const persona1 = new datos(edad, dni, domicilio, profesion);
+alert("Sus datos son: edad: " + persona1.edad + ", dni: " + persona1.dni + ", domicilio: " + persona1.domicilio + " y su profesión es " + persona1.profesion + ".");
+}
+
+// Ingreso array y utilizo metod push. Por algun motivo que desconozco cuando ingreso la opcion seleccionada me devuelve "Tu reserva es 2". Estuve tratando de encontrar la solucion pero no logre hacerlo.
+
+
+function habitaciones(c1,c2,c3){
+    alert("A continuación le mostramos los tres tipos de habitaciones que nos quedan disponible con sus características");
+    const habitacion1=["HABITACIÓN CLASSIC - VALOR (15.000): \nCapacidad: tres personas \nCaja de seguridad \nBalcón \nDucha escocesa"];
+    const habitacion2=["HABITACIÓN PREMIUM - VALOR (25.000): \nCapacidad: cuatro personas \nCaja de seguridad \nBalcón \nHidromasaje"];
+    const habitacion3=["HABITACIÓN DELUXE - VALOR (45.000): \nCapacidad: cinco personas \nCaja de seguridad \nBalcón \nHidromasaje y yacuzzi \nFrigobar"];
+    alert(habitacion1);
+    alert(habitacion2);
+    alert(habitacion3);
+    
+    reserva=prompt("Elija cualquiera de las tres opciones disponibles (CLASSIC - PREMIUM - DELUXE). Sepa usted que a la habitación reservada se le sumara el servicio de limpieza, ropa blanca y desayuno.").toUpperCase();
+
+    if (reserva===c1){
+        alert("Tu reserva es:" + (habitacion1.push('Servicio de limpieza Ropa blanca Desayuno')));
+    } else if (reserva===c2){
+        alert("Tu reserva es:" + (habitacion2.push('\nServicio de limpieza \n Ropa blanca \nDesayuno')));
+    } else if (reserva===c3){
+            alert("Tu reserva es:" + (habitacion1.push('\nServicio de limpieza \n Ropa blanca \nDesayuno')));
+        }
+     else if ((reserva!==CLASSIC) && (reserva!==PREMIUM) && (reserva!==DELUXE)) {
+        alert("No es una opción válida")
+        habitaciones();
+    }
+
+}
+
+
 function elegirActividad(ac1,ac2,ac3,ac4,ac5){
     alert("Como parte de una promoción le ofrecemos una de las siguientes actividades para que realize de manera gratuita junto a su familia");
     actividad=prompt("Elija una de las siguientes opciones: Spa, Natacion, Baile, Cabalgata o Senderismo").toUpperCase();
@@ -78,6 +128,9 @@ function elegirActividad(ac1,ac2,ac3,ac4,ac5){
 function registrarse () {
     bienvenido();
     elegirFecha("30.000 pesos","20.000 pesos","12.000 pesos","ENERO","FEBRERO", "MARZO");
+    
+    ingresaDatos();
+    habitaciones("CLASSIC","PREMIUM","DELUXE");
     elegirActividad("SPA", "NATACION", "BAILE", "CABALGATA", "SENDERISMO");
    
     if (confirmar("SI","NO") === 'error') {
