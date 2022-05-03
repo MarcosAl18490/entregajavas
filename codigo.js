@@ -40,7 +40,7 @@ const persona1 = new datos(edad, dni, domicilio, profesion);
 alert("Sus datos son: edad: " + persona1.edad + ", dni: " + persona1.dni + ", domicilio: " + persona1.domicilio + " y su profesión es " + persona1.profesion + ".");
 }
 
-// Ingreso array y utilizo metod push. Por algun motivo que desconozco cuando ingreso la opcion seleccionada me devuelve "Tu reserva es 2". Estuve tratando de encontrar la solucion pero no logre hacerlo.
+// Ingreso array y utilizo el metodo "Concat" para unir dos arrays en uno solo.
 
 
 function habitaciones(c1,c2,c3){
@@ -53,17 +53,18 @@ function habitaciones(c1,c2,c3){
     alert(habitacion3);
     
     reserva=prompt("Elija cualquiera de las tres opciones disponibles (CLASSIC - PREMIUM - DELUXE). Sepa usted que a la habitación reservada se le sumara el servicio de limpieza, ropa blanca y desayuno.").toUpperCase();
+    const extras=["\nServicio de limpieza \nRopa blanca \nDesayuno"];
 
     if (reserva===c1){
-        alert("Tu reserva es:" + (habitacion1.push('Servicio de limpieza Ropa blanca Desayuno')));
+        alert("Tu reserva es:" + habitacion1.concat(extras));
     } else if (reserva===c2){
-        alert("Tu reserva es:" + (habitacion2.push('\nServicio de limpieza \n Ropa blanca \nDesayuno')));
+        alert("Tu reserva es:" + habitacion2.concat(extras));
     } else if (reserva===c3){
-            alert("Tu reserva es:" + (habitacion1.push('\nServicio de limpieza \n Ropa blanca \nDesayuno')));
+            alert("Tu reserva es:" + habitacion1.concat(extras));
         }
-     else if ((reserva!==CLASSIC) && (reserva!==PREMIUM) && (reserva!==DELUXE)) {
+     else if ((reserva!==c1) && (reserva!==c2) && (reserva!==c3)) {
         alert("No es una opción válida")
-        habitaciones();
+        habitaciones(c1,c2,c3);
     }
 
 }
