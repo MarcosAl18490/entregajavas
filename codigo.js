@@ -63,17 +63,9 @@ function elegirhabitacion(habitacion){
 
 }
 
-
-
-
-// Quise realizar la función submit para ejecutar la funcion de validar formulario, pero cada vez que envía el mismo se me redirigia al primer imput. No pude resorverlo.
-
-
-
 function validarFormulario(event){
     event.preventDefault();
-    console.log("formulario enviado")
-    if (nombre.lenght && apellido.lenght && email.lenght && persona1.nacionalidad.lenght && persona1.edad && persona1.profesion.lenght && fechaelegida){
+    if (nombre.value.length>0 && apellido.value.length>0 && email.value.length>0 ){
         for (let i = 3; i <= 3; i--) {
             console.log("Confirmando su reserva, espere " + i + "seg");
             if (i === 1) {
@@ -84,7 +76,7 @@ function validarFormulario(event){
         alert("Su reserva a sido confirmada. Muchas gracias por confiar en nosotros.");
     }
     else{
-        alert="Complete todos los datos"
+        alert("Complete todos los datos");
     }
 }
 
