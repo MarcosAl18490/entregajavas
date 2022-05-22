@@ -72,11 +72,21 @@ function validarFormulario(event){
                 break;
             }
         }
-    
-        alert("Su reserva a sido confirmada. Muchas gracias por confiar en nosotros.");
+            Swal.fire({
+                icon: 'success',
+                title: 'Felicitaciones',
+                text: 'Su reserva a sido confirmada',
+                footer: 'Gracias por confiar en nosotros',
+          })
+        // alert("Su reserva a sido confirmada. Muchas gracias por confiar en nosotros.");
     }
     else{
-        alert("Complete todos los datos");
+        Swal.fire({
+            icon: 'error',
+            title: 'Atención',
+            text: 'Debes completar los campos requeridos',
+          })
+        // alert("Complete todos los datos");
     }
 }
 
