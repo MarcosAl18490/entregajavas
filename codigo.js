@@ -71,6 +71,7 @@ function validarFormulario(event){
             if (i === 1) {
                 break;
             }
+            enviarDatos;
         }
             Swal.fire({
                 icon: 'success',
@@ -78,7 +79,7 @@ function validarFormulario(event){
                 text: 'Su reserva a sido confirmada',
                 footer: 'Gracias por confiar en nosotros',
           })
-        // alert("Su reserva a sido confirmada. Muchas gracias por confiar en nosotros.");
+        
     }
     else{
         Swal.fire({
@@ -86,11 +87,28 @@ function validarFormulario(event){
             title: 'Atención',
             text: 'Debes completar los campos requeridos',
           })
-        // alert("Complete todos los datos");
+        
     }
 }
 
+function enviarDatos(){
+ fetch('https://jsonplaceholder.typicode.com/posts', {
+  method: 'POST',
+  body: JSON.stringify({
+    title: 'Caracteristicas de la reserva',
+    body: "Nombre" + nombre + "Apellido:" + apellido,
+    userId: 1,
+  }),
+  headers: {
+    'Content-type': 'application/json; charset=UTF-8',
+  },
+})
+  .then((response) => response.json())
+  .then((json) => console.log(json));
+}
 
-let miFormulario = document.getElementById("formulario");
+  let miFormulario = document.getElementById("formulario");
 miFormulario.addEventListener('submit',validarFormulario);
+
+
 
