@@ -10,23 +10,24 @@
 </head>
 <body>
     <h1 id="encabezado">Resort Altos de Simic</h1>
-    <p>Complete los siguientes datos para realizar sus reserva</p>
+    <p>Complete los siguientes datos para realizar su reserva.</p>
+    <p><strong>Campos obligatorios (*)</strong> </p>
     <form id="formulario" class="row g-3">
     
         <div class="col-md-4">
-          <label for="validationDefault01" class="form-label">Nombre</label>
+          <label for="validationDefault01" class="form-label">Nombre (*)</label>
           <input type="text" class="form-control" id="valor1" value="" >
         </div>
 
 
         <div class="col-md-4">
-          <label for="validationDefault02" class="form-label">Apellido</label>
+          <label for="validationDefault02" class="form-label">Apellido (*)</label>
           <input type="text" class="form-control" id="valor2" value="" >
         </div>
 
 
         <div class="col-md-4">
-          <label for="validationDefaultUsername" class="form-label">Email</label>
+          <label for="validationDefaultUsername" class="form-label">Email (*)</label>
           <div class="input-group">
             <span class="input-group-text" id="inputGroupPrepend2">@</span>
             <input type="text" class="form-control" id="valor3"  aria-describedby="inputGroupPrepend2" >
@@ -47,7 +48,7 @@
             <input type="text" class="form-control" id="valor6" >
         </div>
 
-        <p>Estas son nuestras fechas disponibles por el momento. Elija la que desee: primera quincena de enero, primera quincena de febrero  o segunda quincena de marzo </p>
+        <p><strong> Estas son nuestras fechas disponibles por el momento. Seleccione la opción deseada: (*)</strong> </p>
         <div class="form-check form-check-inline">
             <input onchange="elegirfecha(this)" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Primera quincena de enero">
             <label class="form-check-label" for="inlineRadio1">Primera quincena de enero</label>
@@ -61,8 +62,8 @@
             <label class="form-check-label" for="inlineRadio3">Segunda quincena de marzo</label>
           </div>
         
-            <p>A continuacion le ofrecemos una de la siguientes actividades para que realiza de manera gratuita junto a su familia</p>
-          <label for="validationDefault04" class="form-label">Actividades</label>
+            <p><strong> A continuación le ofrecemos una de la siguientes actividades para que realize de manera gratuita junto a su familia. Seleccione la opción deseada:</strong></p>
+          <label for="validationDefault04" class="form-label">Actividades:</label>
           <select onchange="elegiractividad(this)" class="form-select" id="valor7" >
             <option selected disabled value="">Seleccionar</option>
             <option>
@@ -83,8 +84,8 @@
           </select>
         </div>
 
-        <p>Eliga el tipo de habitacion que desea reservar. Cada una lleva incluido el servicio de limpieza, la ropa blanca y el desayuno</p>
-        <label for="validationDefault04" class="form-label">Habitaciones</label>
+        <p><strong> Eliga el tipo de habitación que desea reservar. Cada una lleva incluido el servicio de limpieza, la ropa blanca y el desayuno.</strong></p>
+        <label for="validationDefault04" class="form-label">Habitaciones:</label>
           <select onchange="elegirhabitacion(this)" class="form-select" id="validationDefault04" >
             <option selected disabled value="">Seleccionar</option>
             <option>
@@ -100,9 +101,9 @@
         </div>
         <div class="col-12">
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" >
+            <input onchange="aceptarTerminos(this)" class="form-check-input" type="checkbox" value="" id="invalidCheck2" required >
             <label class="form-check-label" for="invalidCheck2">
-              Acepto terminos y condiciones
+              Acepto términos y condiciones (*)
             </label>
 
 
