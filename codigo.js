@@ -66,7 +66,7 @@ function elegiractividad(actividad){
 // En la siguiente función, a la opción elegida por el usuario le concateno otras opciones ya establecidas.
 function elegirhabitacion(habitacion){
     habitacionelegida = habitacion.value;
-    console.log("La Habitacion elegida es " + (habitacion.value).concat(extras));
+    console.log("La Habitación elegida es " + (habitacion.value).concat(extras));
 
 }
 
